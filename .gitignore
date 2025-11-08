@@ -1,0 +1,11 @@
+.vscode/*.json
+.idea
+._*
+.DS_Store
+Thumbs.db
+*.cache
+*.lock
+/vendor
+/node_modules
+.env.*
+!.env.example
