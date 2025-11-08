@@ -1,0 +1,39 @@
+{
+  "name": "ngsoft/cli-profile",
+  "description": "Helpers for symfony console application",
+  "version": "1.0.0",
+  "keywords": [],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Aymeric Anger",
+      "role": "Developer",
+      "homepage": "https://github.com/ngsoft"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "process-timeout": 0,
+    "platform-check": false
+  },
+  "autoload": {
+    "psr-4": {
+      "NGSOFT\\": "src/"
+    }
+  },
+  "scripts": {},
+  "suggest": {},
+  "provide": {},
+  "require": {
+    "php": ">=8.2",
+    "laravel/prompts": "*",
+    "symfony/console": "^7|^8"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^7|^8",
+    "symfony/console": "^7.4"
+  }
+}
