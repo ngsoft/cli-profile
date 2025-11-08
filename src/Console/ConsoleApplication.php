@@ -16,7 +16,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Contracts\Service\Attribute\Required;
 
-final class ConsoleApplication
+final class ConsoleApplication implements Version
 {
     private ?ContainerInterface $container = null;
     private array $definitions             = [];

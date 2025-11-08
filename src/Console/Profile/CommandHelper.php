@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NGSOFT\Console\Profile;
 
+use NGSOFT\Console\Version;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 class CommandHelper extends SymfonyStyle implements Version
