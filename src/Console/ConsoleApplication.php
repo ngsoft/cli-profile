@@ -83,12 +83,8 @@ final class ConsoleApplication implements Version
                 ));
             }
 
-            if (is_string($command))
-            {
-                $this->definitions[] = $command;
-            }
-
-            $this->definitions = array_values(array_unique($this->definitions));
+            $this->definitions[] = $command;
+            $this->definitions   = array_values(array_unique($this->definitions));
         }
 
         return $this;
