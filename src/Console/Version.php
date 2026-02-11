@@ -6,5 +6,5 @@ namespace NGSOFT\Console;
 
 interface Version
 {
-    public const VERSION = '25.11.1';
+    public const VERSION = '26.02.0';
 }

@@ -15,6 +15,7 @@ trait HasCommandHelper
 {
     private InputInterface $input;
     private OutputInterface $output;
+    private ?CommandHelper $commandHelper = null;
 
     #[Required]
     public function setInput(ArgvInput $input): void

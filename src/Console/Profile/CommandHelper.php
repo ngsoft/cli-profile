@@ -88,28 +88,69 @@ class CommandHelper extends SymfonyStyle implements Version
         $this->writeln($lines);
     }
 
+    /**
+     * @param string|\Stringable $message
+     * @param mixed              ...$replacements
+     *
+     * @return string[]
+     */
+    public static function multiline_message(string|\Stringable $message, mixed ...$replacements): array
+    {
+        $message = self::str_format((string) $message, $replacements);
+        $message = str_replace("\r\n", "\n", $message);
+        return explode("\n", $message);
+    }
+
     public function infoMessage(string|\Stringable $message, mixed ...$replacements): void
     {
+        static $padding = '             ';
+        $message        = self::multiline_message($message, ...$replacements);
+        $first          = array_shift($message);
+
         $this->writeln(
-            '  <bg=blue;fg=white> INFO </> '
-            . $this::str_format((string) $message, $replacements)
+            '    <bg=blue;fg=black> INFO </>   '
+            . $first
         );
+
+        foreach ($message as $line)
+        {
+            $this->writeln($padding . $line);
+        }
+        $this->writeln('');
     }
 
     public function warningMessage(string|\Stringable $message, mixed ...$replacements): void
     {
+        static $padding = '             ';
+        $message        = self::multiline_message($message, ...$replacements);
+        $first          = array_shift($message);
         $this->writeln(
-            '  <bg=yellow;fg=black> WARNING </> '
-            . $this::str_format((string) $message, $replacements)
+            '  <bg=yellow;fg=black> WARNING </>  '
+            . $first
         );
+
+        foreach ($message as $line)
+        {
+            $this->writeln($padding . $line);
+        }
+        $this->writeln('');
     }
 
     public function errorMessage(string|\Stringable $message, mixed ...$replacements): void
     {
+        static $padding = '             ';
+        $message        = self::multiline_message($message, ...$replacements);
+        $first          = array_shift($message);
         $this->writeln(
-            '  <bg=red;fg=white> ERROR </> '
-            . $this::str_format((string) $message, $replacements)
+            '   <bg=red;fg=black> ERROR </>   '
+            . $first
         );
+
+        foreach ($message as $line)
+        {
+            $this->writeln($padding . $line);
+        }
+        $this->writeln('');
     }
 
     public function info(array|string $message): void

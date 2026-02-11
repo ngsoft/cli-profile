@@ -1,7 +1,7 @@
 {
   "name": "ngsoft/cli-profile",
   "description": "Helpers for symfony console application",
-  "version": "25.11.1",
+  "version": "26.02.0",
   "keywords": [],
   "license": "MIT",
   "authors": [
@@ -36,6 +36,7 @@
   },
   "require-dev": {
     "symfony/var-dumper": "^7|^8",
-    "symfony/event-dispatcher": "^7.4"
+    "symfony/event-dispatcher": "^7.4",
+    "friendsofphp/php-cs-fixer": "^3"
   }
 }
