@@ -1,7 +1,7 @@
 {
   "name": "ngsoft/cli-profile",
   "description": "Helpers for symfony console application",
-  "version": "26.02.0",
+  "version": "26.02.1",
   "keywords": [],
   "license": "MIT",
   "authors": [

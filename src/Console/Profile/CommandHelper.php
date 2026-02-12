@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace NGSOFT\Console\Profile;
 
 use NGSOFT\Console\Version;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 class CommandHelper extends SymfonyStyle implements Version
@@ -12,6 +14,11 @@ class CommandHelper extends SymfonyStyle implements Version
     private $startText  = null;
 
     private $startBlock = null;
+
+    public function __construct(private readonly InputInterface $input, private readonly OutputInterface $output)
+    {
+        parent::__construct($input, $output);
+    }
 
     public static function str_format(string $subject, array $replacements)
     {
@@ -166,6 +173,16 @@ class CommandHelper extends SymfonyStyle implements Version
     public function error(array|string $message): void
     {
         $this->block($message, 'ERROR', 'fg=red');
+    }
+
+    public function getInput(): InputInterface
+    {
+        return $this->input;
+    }
+
+    public function getOutput(): OutputInterface
+    {
+        return $this->output;
     }
 
     protected function startText()

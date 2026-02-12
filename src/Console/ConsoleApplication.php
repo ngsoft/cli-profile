@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace NGSOFT\Console;
 
+use NGSOFT\Console\Profile\CommandHelper;
+use NGSOFT\Console\Profile\LaravelPromptConfigurator;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
@@ -93,7 +95,9 @@ final class ConsoleApplication implements Version
     public function run(): void
     {
         $this->addDefinitions($this->definitions);
-        $this->application->run($this->input, self::addStyles($this->output));
+        $output = self::addStyles($this->output);
+        new LaravelPromptConfigurator(new CommandHelper($this->input, $this->output));
+        $this->application->run($this->input, $output);
     }
 
     private function addDefinitions(array $definitions): void
