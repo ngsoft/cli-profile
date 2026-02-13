@@ -122,7 +122,7 @@ class CommandHelper extends SymfonyStyle implements Version
      * @param string          $style
      * @param int             $padding
      */
-    public function laravelStyleBlock(array|string $message, string $type, string $style = 'bg:white;fg:black', int $padding = 15)
+    public function laravelStyleBlock(array|string $message, string $type, string $style = 'bg=white;fg=black', int $padding = 15)
     {
         if (is_array($message))
         {
