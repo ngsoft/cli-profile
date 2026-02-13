@@ -181,7 +181,7 @@ readonly class LaravelPromptConfigurator
 
             if ($required && ('' === $result || [] === $result || false === $result))
             {
-                $this->commandHelper->errorMessage(is_string($required) ? $required : 'Required.');
+                $this->commandHelper->error(is_string($required) ? $required : 'Required.');
                 continue;
             }
 
@@ -189,7 +189,7 @@ readonly class LaravelPromptConfigurator
 
             if (is_string($error) && strlen($error) > 0)
             {
-                $this->commandHelper->errorMessage($error);
+                $this->commandHelper->error($error);
                 continue;
             }
 

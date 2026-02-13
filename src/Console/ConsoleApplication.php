@@ -94,8 +94,10 @@ final class ConsoleApplication implements Version
 
     public function run(): void
     {
+        $_SERVER['VAR_DUMPER_FORMAT'] = 'cli';
+        $_SERVER['FORCE_COLOR']       = '1';
         $this->addDefinitions($this->definitions);
-        $output = self::addStyles($this->output);
+        $output                       = self::addStyles($this->output);
         new LaravelPromptConfigurator(new CommandHelper($this->input, $this->output));
         $this->application->run($this->input, $output);
     }
