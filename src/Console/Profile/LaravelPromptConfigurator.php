@@ -27,6 +27,11 @@ readonly class LaravelPromptConfigurator
         $this->configurePrompts();
     }
 
+    public static function applyStyles(CommandHelper $commandHelper): void
+    {
+        new static($commandHelper);
+    }
+
     /**
      * Configure the prompt fallbacks.
      */
